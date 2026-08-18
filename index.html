@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Spelling Bee is a web-based application built with React that demonstrates my skills in working with APIs and integrating Text-to-Speech (TTS) tools.">
+    <meta name="keywords" content="Danylo Khobta, Khobta Danylo, Spelling Bee">
+    <meta name="author" content="Danylo Khobta">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags (used for social media sharing) -->
+    <meta property="og:title" content="Spelling Bee | Danylo Khobta">
+    <meta property="og:description" content="Spelling Bee is a web-based application built with React that demonstrates my skills in working with APIs and integrating Text-to-Speech (TTS) tools.">
+    <meta property="og:image" content="./cover.png">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Spelling Bee",
+        "description": "Spelling Bee is a web-based application built with React that demonstrates my skills in working with APIs and integrating Text-to-Speech (TTS) tools.",
+        "author": {
+            "@type": "Person",
+            "name": "Danylo Khobta"
+        }
+      }
+    </script>
+
+    <script>
+      // Static hosts only ever serve this file from the app's own directory, so
+      // that directory is the router's basename — read it instead of hardcoding
+      // one, and the same build runs at a domain root or under /<repo>/.
+      (function () {
+        var path = location.pathname;
+        var root = path.slice(0, path.lastIndexOf('/') + 1);
+        window.__APP_BASE__ = root;
+
+        // 404.html parks the requested route in the query string (?/game) so a
+        // deep link or a refresh can survive a host with no SPA rewrite rule.
+        // Put it back in the address bar before React reads the URL.
+        if (location.search.slice(0, 2) === '?/') {
+          history.replaceState(null, '', root + location.search.slice(2) + location.hash);
+        }
+      })();
+    </script>
+
+    <title>Spelling Bee</title>
+    <script type="module" crossorigin src="./assets/index-CXZmF-KN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BAN98Kqu.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

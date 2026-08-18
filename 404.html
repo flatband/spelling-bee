@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spelling Bee</title>
+    <script>
+      // GitHub Pages has no SPA rewrite rule: a request for /game is a real 404
+      // and lands here. Bounce it to the app's index with the route parked in
+      // the query string, which index.html unpacks before React boots.
+      //
+      // Which leading part of the path is the app and which is the route can't
+      // be known from here, so recognise the routes instead of hardcoding a
+      // deploy path or a segment count. Dropping the last segment either way
+      // guarantees the redirect targets a directory that actually exists.
+      (function () {
+        var ROUTES = ['home', 'game', 'results'];
+        var parts = location.pathname.replace(/\/+$/, '').split('/');
+        var last = parts.pop();
+        var root = parts.join('/') + '/';
+        var route = ROUTES.indexOf(last) > -1 ? '?/' + last : '';
+        location.replace(root + route + location.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
